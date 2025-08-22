@@ -5,6 +5,7 @@ import { getStaticData, pollResources } from './resourceManager.js';
 import { getAssetPath, getPreloadPath, getUiPath } from './pathResolver.js';
 import path from 'node:path';
 import { createTray } from './tray.js';
+import { createMenu } from './menu.js';
 
 app.on('ready', () => {
     const mainWindow = new BrowserWindow({
@@ -22,6 +23,7 @@ app.on('ready', () => {
     ipcMainHandle('getStaticData', getStaticData);
 
     createTray(mainWindow);
+    createMenu(mainWindow);
     handleCloseEvents(mainWindow);
 });
 

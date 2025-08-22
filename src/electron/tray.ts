@@ -23,7 +23,7 @@ export function createTray(mainWindow: BrowserWindow) {
             },
             {
                 label: 'Quit',
-                click: () => app.quit(),
+                click: app.quit,
             },
         ])
     );
