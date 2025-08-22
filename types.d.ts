@@ -12,10 +12,13 @@ type StaticData = {
 
 type View = 'CPU' | 'RAM' | 'STORAGE';
 
+type FrameWindowAction = 'CLOSE' | 'MAXIMIZE' | 'MINIMIZE';
+
 type EventPayloadMapping = {
     statistics: Statistics;
     getStaticData: StaticData;
     changeView: View;
+    sendFrameAction: FrameWindowAction;
 };
 
 interface Window {
@@ -25,5 +28,7 @@ interface Window {
         ) => () => void;
         getStaticData: () => Promise<StaticData>;
         subscribeChangeView: (callback: (view: View) => void) => () => void;
+        platform: NodeJS.Platform;
+        sendFrameAction: (payload: FrameWindowAction) => void;
     };
 }

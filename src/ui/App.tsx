@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import { useStatistics } from './useStatistics';
 import Chart from './Chart';
+import WindowControls from './WindowControls';
 
 function App() {
    const statistics = useStatistics(10);
@@ -36,6 +37,7 @@ function App() {
 
    return (
       <>
+         <WindowControls />
          <div style={{ width: 300, height: 120 }}>
             <Chart data={activeUsages} maxDataPoints={10} />
          </div>

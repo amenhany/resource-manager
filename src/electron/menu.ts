@@ -9,7 +9,18 @@ export function createMenu(mainWindow: BrowserWindow) {
                 type: 'submenu',
                 submenu: [
                     {
+                        label: 'Minimize',
+                        accelerator: 'CmdOrCtrl+M',
+                        click: () => mainWindow.minimize(),
+                    },
+                    {
+                        label: 'Close Window',
+                        accelerator: 'CmdOrCtrl+W',
+                        click: () => mainWindow.close(),
+                    },
+                    {
                         label: 'Quit',
+                        accelerator: 'CmdOrCtrl+Q',
                         click: app.quit,
                     },
                 ],
@@ -20,6 +31,7 @@ export function createMenu(mainWindow: BrowserWindow) {
                 submenu: [
                     {
                         label: 'CPU',
+                        accelerator: 'CmdOrCtrl+1',
                         click: () =>
                             ipcWebContentsSend(
                                 'changeView',
@@ -29,6 +41,7 @@ export function createMenu(mainWindow: BrowserWindow) {
                     },
                     {
                         label: 'RAM',
+                        accelerator: 'CmdOrCtrl+2',
                         click: () =>
                             ipcWebContentsSend(
                                 'changeView',
@@ -38,6 +51,7 @@ export function createMenu(mainWindow: BrowserWindow) {
                     },
                     {
                         label: 'STORAGE',
+                        accelerator: 'CmdOrCtrl+3',
                         click: () =>
                             ipcWebContentsSend(
                                 'changeView',
@@ -47,8 +61,10 @@ export function createMenu(mainWindow: BrowserWindow) {
                     },
                     {
                         label: 'DevTools',
+                        accelerator: 'CmdOrCtrl+I',
                         click: () => mainWindow.webContents.openDevTools(),
                         visible: isDev(),
+                        enabled: isDev(),
                     },
                 ],
             },
