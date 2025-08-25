@@ -9,16 +9,19 @@ export default function WindowControls() {
             <div className="window-controls mac">
                <div
                   className="window-btn close"
+                  id="close"
                   data-symbol="×"
                   onClick={() => window.electron.sendFrameAction('CLOSE')}
                ></div>
                <div
                   className="window-btn min"
+                  id="minimize"
                   data-symbol="–"
                   onClick={() => window.electron.sendFrameAction('MINIMIZE')}
                ></div>
                <div
                   className="window-btn max"
+                  id="maximize"
                   data-symbol="+"
                   onClick={() => window.electron.sendFrameAction('MAXIMIZE')}
                ></div>
@@ -29,18 +32,21 @@ export default function WindowControls() {
             <div className="win-controls">
                <div
                   className="win-btn min"
+                  id="minimize"
                   onClick={() => window.electron.sendFrameAction('MINIMIZE')}
                >
                   –
                </div>
                <div
                   className="win-btn max"
+                  id="maximize"
                   onClick={() => window.electron.sendFrameAction('MAXIMIZE')}
                >
                   □
                </div>
                <div
                   className="win-btn close"
+                  id="close"
                   onClick={() => window.electron.sendFrameAction('CLOSE')}
                >
                   ×
