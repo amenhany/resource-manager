@@ -1,4 +1,5 @@
 import { test, expect, _electron } from '@playwright/test';
+import { electron } from 'process';
 
 let electronApp: Awaited<ReturnType<typeof _electron.launch>>;
 let mainPage: Awaited<ReturnType<typeof electronApp.firstWindow>>;
@@ -20,7 +21,7 @@ async function waitForPreloadScript() {
 test.beforeEach(async () => {
     electronApp = await _electron.launch({
         env: { NODE_ENV: 'development' },
-        executablePath: require('electron') as unknown as string,
+        executablePath: electron as unknown as string,
         args: ['.', '--no-sandbox', '--disable-setuid-sandbox'],
     });
     mainPage = await electronApp.firstWindow();
