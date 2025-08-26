@@ -1,69 +1,44 @@
-# React + TypeScript + Vite
+# 📈 Resource Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Task Manager-like **fully tested**, and **type-safe** desktop application built with Electron to help monitor CPU, RAM, and Storage live usages as well as provide system information in a minimalistic fashion, designed to run seamlessly on all major desktop platforms.
 
-Currently, two official plugins are available:
+## 💥 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Fully tested
+- Unit tests with Vitest
+- End-to-end (E2E) tests with Playwright
+- Continuous integration with GitHub Actions ensures tests run automatically on every commit
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✅ Cross-platform builds
+- Generated for Windows, macOS, and Linux using GitHub Actions
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+✅ Type-safe codebase
+- Written in TypeScript
+- Strong typings enforced across main, preload, and renderer processes
+- IPC communication is safe: only specific functions are exposed to the UI
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+✅ Custom window frame
+- Matches the native look and feel of both Windows and macOS
+- Supports closing, minimizing, maximizing, and dragging just like a native app
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+✅ System tray integration
+- Tray menu with Show and Quit actions
+- On macOS: custom tray icon with automatic light/dark (black/white) adaptation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+✅ Custom macOS menu bar
+- Show / Quit / Close actions
+- View switching directly from the macOS menu bar
+- Works in sync with the renderer UI for seamless interaction
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🛠 Tech Stack
+- [Electron](https://www.electronjs.org/)
+- [React](https://react.dev)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vitest](https://vitest.dev) for unit tests
+- [Playwright](https://playwright.dev) for end-to-end tests
+- [GitHub Actions](https://github.com/features/actions) for CI/CD
+
+
+<img width="842" height="639" alt="Screenshot 2025-08-26 at 8 46 42 PM" src="https://github.com/user-attachments/assets/4004701d-052d-4f94-8b32-7aade99584e1" />
