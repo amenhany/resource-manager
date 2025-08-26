@@ -19,15 +19,16 @@ async function waitForPreloadScript() {
 
 test.beforeEach(async () => {
     electronApp = await _electron.launch({
-        args: ['.'],
         env: { NODE_ENV: 'development' },
+        executablePath: require('electron') as unknown as string,
+        args: ['.', '--no-sandbox', '--disable-setuid-sandbox'],
     });
     mainPage = await electronApp.firstWindow();
     await waitForPreloadScript();
 });
 
 test.afterEach(async () => {
-    await electronApp.close();
+    if (electronApp) await electronApp.close();
 });
 
 test('Custom frame should minimize', async () => {
