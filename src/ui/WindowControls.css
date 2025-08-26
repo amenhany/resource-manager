@@ -1,15 +1,19 @@
 header {
-    position: absolute;
-    top: 0;
+    /* position: absolute; */
+    /* top: 0; */
+    display: flex;
     padding: 0.5rem;
+    -webkit-app-region: drag;
 }
 
 header.mac {
-    left: 0;
+    /* left: 0; */
+    justify-content: left;
 }
 
 header.win {
-    right: 0;
+    /* right: 0; */
+    justify-content: right;
 }
 
 /* ===== Mac Controls ===== */

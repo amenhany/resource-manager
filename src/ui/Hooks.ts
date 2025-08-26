@@ -16,3 +16,13 @@ export function useStatistics(dataPointCount: number): Statistics[] {
 
     return value;
 }
+
+export function useStaticData() {
+    const [staticData, setStaticData] = useState<StaticData | null>(null);
+
+    useEffect(() => {
+        window.electron.getStaticData().then((data) => setStaticData(data));
+    });
+
+    return staticData;
+}
