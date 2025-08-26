@@ -22,14 +22,7 @@ jobs:
           node-version: 24
 
       - name: Install dependencies
-        run: |
-          if [ "${{ runner.os }}" = "Windows" ]; then
-            npm cache clean --force
-            npm install --legacy-peer-deps --no-audit --no-fund
-          else
-            npm ci
-          fi
-        shell: bash
+        run: npm ci
 
       - name: Build Electron (for tests)
         run: npm run transpile:electron
