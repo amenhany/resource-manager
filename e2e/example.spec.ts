@@ -21,7 +21,7 @@ async function waitForPreloadScript() {
 test.beforeEach(async () => {
     electronApp = await _electron.launch({
         env: { NODE_ENV: 'development' },
-        executablePath: electron as unknown as string,
+        executablePath: 'electron',
         args: ['.', '--no-sandbox', '--disable-setuid-sandbox'],
     });
     mainPage = await electronApp.firstWindow();
